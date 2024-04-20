@@ -1,1 +1,225 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "font-awesome/css/font-awesome.css";
+
+:root {
+  --color-primary: #48b997;
+  --color-primary-dark: #1a9671;
+  --color-black: #222;
+  --color-gray1: #f3f5f8;
+  --color-gray2: #e0e3e7;
+  --color-gray3: #9c9c9c;
+}
+
+body {
+  color: var(--color-black);
+  background-color: var(--color-gray2);
+}
+
+.bg-primary-dark {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-primary {
+  @apply inline-flex rounded-full bg-primary text-white py-3 px-6 duration-300;
+
+  &:hover {
+    @apply bg-primary-dark;
+  }
+}
+
+.btn-light {
+  @apply inline-flex rounded-full bg-white text-black py-3 px-6 duration-300;
+
+  &:hover {
+    @apply bg-gray-100;
+  }
+
+  &.active {
+    @apply bg-gray-100;
+  }
+}
+
+.btn-link {
+  @apply inline-flex rounded-full bg-gray-100 text-black py-3 px-6 duration-300;
+
+  &:hover {
+    @apply bg-white;
+  }
+
+  &.active {
+    @apply bg-white;
+  }
+}
+
+.btn-action {
+  @apply bg-white rounded-full inline-flex justify-center items-center w-9 h-9;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.color-gray3 {
+  color: var(--color-gray3);
+}
+
+.reset-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+// top header
+.top-header {
+  padding: 15px 0;
+  background: #fff;
+
+  .end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .top-menu {
+      display: flex;
+      gap: 5px;
+      flex-direction: row-reverse;
+      margin-inline-end: 20px;
+
+      .btn-light {
+        --bs-btn-bg: #fff;
+        --bs-btn-border-color: #fff;
+      }
+    }
+
+    .logo {
+      width: 50px;
+    }
+  }
+}
+
+.intro-banner {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.surah-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+
+  .surah-name {
+    border-bottom: 1px solid var(--color-gray2);
+    padding-bottom: 20px;
+  }
+}
+
+.text-bg-success {
+  background-color: var(--color-primary) !important;
+}
+
+.topics-list {
+  border-radius: 25px;
+  padding: 13px;
+  background-color: #f0f2f5;
+
+  .topic-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 15px;
+    padding: 20px 15px;
+
+    &:hover {
+      background-color: #fff;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .co-checkbox {
+      width: 23px;
+    }
+
+    .co-time {
+      width: 100px;
+      text-align: center;
+    }
+
+    .co-title {
+      flex-grow: 1;
+    }
+
+
+    .co-buttons {
+      width: 85px;
+    }
+
+  }
+}
+
+i.fa.fa-youtube-play {
+  color: #ff0808;
+}
+
+i.fa.fa-soundcloud {
+  color: #ff5a21;
+}
+
+.media-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .start {
+    flex-grow: 1;
+  }
+
+  .end {
+    width: 40px;
+  }
+
+  .co-media-name {
+    background: #e0e3e7;
+    border-radius: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgb(193 193 193 / 46%);
+    line-height: 2.5;
+
+    &.active {
+      background-color: #fff;
+    }
+  }
+}
+
+.details-bar {
+  @apply bg-gray-100 py-4;
+}
+
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+a {
+  @apply cursor-pointer;
+}
+
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.no-data {
+  font-size: 22px;
+  text-align: center;
+  padding: 50px 0;
+}

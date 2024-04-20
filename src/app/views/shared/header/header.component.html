@@ -1,0 +1,27 @@
+<div class="top-header">
+    <div class="container">
+        <div class="flex flex-row">
+
+            <div class="flex-grow">
+                <div class="start">
+                    <a href="#" class="btn-light active me-3"> English </a>
+                    <a class="btn-primary" (click)="googleSignIn()"> تسجيل الدخول </a>
+                </div>
+            </div>
+
+            <div class="flex-grow">
+                <div class="end">
+                    <ul class="reset-list top-menu">
+
+                        <li *ngFor="let item of coursesList" class="menu-item">
+                            <a class="btn-light" (click)="onNavOpenTopics(item.id)"> {{ item.title }} </a>
+                        </li>
+
+                    </ul>
+                    <a routerLink="/"> <img src="../assets/logo.svg" class="img-fluid logo"></a>
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- container -->
+</div><!-- top-header -->

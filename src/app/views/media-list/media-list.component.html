@@ -1,0 +1,43 @@
+<app-course-navbar topicName="{{topicName}}" coursesId="{{coursesId}}" topicId="{{topicId}}"></app-course-navbar>
+
+<div class="container">
+  <div class="grid grid-cols-12 gap-10">
+
+    <div class="col-span-8">
+      <img src="../assets/course-list-banner.png" class="img-fluid intro-banner">
+    </div>
+
+    <div class="col-span-4">
+
+      
+      <div class="topics-list">
+
+        
+ 
+ 
+
+            <div *ngFor="let item of mediaList" class="topic-card">
+    
+              <div class="co-checkbox">
+                <div class="flex items-center">
+                  <input id="default-checkbox" class="w-5 h-5" type="checkbox" value="">
+                </div>
+              </div>
+    
+              <div class="co-title"> {{item.titleAr}} </div>
+              <div class="co-time text-gray-400"> {{item.durationMinutes}} </div>
+              <div class="co-buttons">
+                <a [href]="item.youtubeURL"  target="_blank"  class="btn-action bg-white p-2 rounded-full w-10 me-2"> <i class="fa fa-youtube-play"></i> </a>
+                <a [href]="item.soundcloudURL"  target="_blank"  class="btn-action"> <i class="fa fa-soundcloud"></i> </a>
+              </div>
+            </div>
+     
+ 
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
