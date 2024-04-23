@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/core/models/course.model';
 import { SharedService } from 'src/app/core/shared.service';
 import { HttpClient } from '@angular/common/http';
-
-   
   
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
-
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -17,11 +15,17 @@ import { environment } from 'src/environments/environment';
 })
 export class HeaderComponent {
 
-  
   private apiUrl = environment.apiUrl;
-  constructor(private router:Router,private http: HttpClient, private sharedService: SharedService) {}
+  currentLang:string;
 
+  constructor(private router:Router,private http: HttpClient, private sharedService: SharedService , public translate : TranslateService , private route: ActivatedRoute) {
+    this.currentLang = localStorage.getItem('currentLang') || 'ar';
+    this.translate.use(this.currentLang);
+  }
+
+  coursesId: any;
   coursesList!:Course[];
+ 
 
   getCoursesList(): Observable<Course[]> {
     return this.http.get<Course[]>(`${this.apiUrl}/courses`);
@@ -36,9 +40,22 @@ export class HeaderComponent {
     this.sharedService.googleSignIn()
   }
 
+  toggleLang() {
+    if(this.currentLang == 'ar') {
+      this.translate.use('en');
+      localStorage.setItem('currentLang' , 'en');
+      this.currentLang = 'en';
+    } else {
+      this.translate.use('ar');
+      localStorage.setItem('currentLang' , 'ar');
+      this.currentLang = 'ar';
+    }
+  }
+
   ngOnInit() {
-    this.getCoursesList().subscribe((data:Course[]) => {
-      this.coursesList = data
+    this.getCoursesList().subscribe((data:any) => {
+      this.coursesList = data;
     });
   }
+
 }

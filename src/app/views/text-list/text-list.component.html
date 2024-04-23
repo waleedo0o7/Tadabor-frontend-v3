@@ -1,37 +1,23 @@
-<app-course-navbar topicName="{{topicName}}" coursesId="{{coursesId}}" topicId="{{topicId}}"></app-course-navbar>
+<app-course-navbar activeNav="text" topicName="{{topicName}}" coursesId="{{coursesId}}" topicId="{{topicId}}"></app-course-navbar>
 
 <div class="max-w-6xl mx-auto">
+  <div class="grid grid-cols-12 gap-10" *ngIf="textList; else noDate">
 
-  <div class="grid grid-cols-12 gap-10">
-
-    <div class="col-span-10">
+    <div class="col-span-9">
 
       <div class="bg-white rounded-2xl p-8 text-lg mb-5">
-
         <div [innerHTML]="textDetails | safeHtml"></div>
-
       </div>
 
       <div class="co-btn">
-        <a href="#" class="btn-primary"> التالي </a>
+        <a class="btn-primary" (click)="getTextLessonDetails(activetextItem + 1 )"> التالي </a>
       </div>
 
-    </div>
+    </div> <!-- col-span-10 -->
 
-    <div class="col-span-2">
+    <div class="col-span-3">
 
       <div class="media-list">
-
-        <div class="media-item">
-
-          <div class="end">
-
-          </div>
-
-          <div class="start">
-            <div class="text-center mb-3"> اية </div>
-          </div>
-        </div>
 
         <div *ngFor="let item of textList" class="media-item">
 
@@ -46,13 +32,25 @@
 
           <div class="start">
             <a (click)="getTextLessonDetails(item.id)"
-              class="{{item.isActive === true ? 'co-media-name active' : 'co-media-name'}}">
+              [ngClass]="activetextItem == item.id ? 'active' : ''"
+              class="co-media-name">
               {{item.titleAr}}</a>
           </div>
 
         </div>
+
       </div>
 
+
+
+    </div> <!-- col-span-2 -->
+
+  </div> <!-- grid grid-cols-12 -->
+
+  <ng-template #noDate>
+    <div class="no-data topics-list">
+      <h1> No Data </h1>
     </div>
-  </div>
-</div>
+  </ng-template>
+
+</div> <!-- max-w-6xl mx-auto -->

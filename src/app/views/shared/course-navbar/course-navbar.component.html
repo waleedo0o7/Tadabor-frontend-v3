@@ -1,31 +1,51 @@
 <div class="details-bar mb-10">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-5">
-  
-        <div class="co-btn">
-          <a href="https://youtube.com" target="_blank" class="btn-link flex items-center content-center"> <i class="fa fa-soundcloud me-2"></i> <span
-              class="text"> قائمة ساوند كلاود </span> </a>
-        </div>
-  
-        <div class="co-btn">
-          <a href="https://youtube.com/" target="_blank" class="btn-link flex items-center content-center"> <i class="fa fa-youtube-play me-2"></i> <span
-              class="text"> قائمة يوتيوب </span> </a>
-        </div>
-  
-        <div class="co-btn">
-          <a class="btn-link flex items-center content-center" (click)="navText()"> <i class="fa fa-file me-2"></i> <span class="text me-2"> قراءة التدبر </span> </a>
-        </div>
-  
-        <div class="co-btn">
-          <a class="btn-link flex items-center content-center" (click)="navMedia()"> <i class="fa fa-play-circle me-2"></i>
-            <span class="text me-2"> مشاهدة التدبر </span> </a>
-        </div>
-  
-        <div class="co-btn">
-          <a class="btn-link flex items-center content-center"> <span class="text">  {{topicName}}   </span> </a>
-        </div>
-  
+
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-5">
+
+      <div class="co-btn">
+        <a href="https://soundcloud.com" target="_blank"
+          class="btn-link flex items-center content-center"> <i
+            class="fa fa-soundcloud me-2"></i> <span
+            class="text">
+            {{ "soundcludePlaylist" | translate}}
+          </span> </a>
       </div>
+
+      <div class="co-btn">
+        <a href="https://youtube.com/" target="_blank"
+          class="btn-link flex items-center content-center">
+          <i class="fa fa-youtube-play me-2"></i>
+          <span class="text">
+            {{ "youtubePlaylist" | translate}}
+          </span>
+        </a>
+      </div>
+
+      <div class="co-btn">
+        <a class="btn-link flex items-center content-center"
+          [ngClass]="activeNav == 'text' ? 'active' : ''"
+          (click)="navText()">
+          <i class="fa fa-file me-2"></i> <span class="text me-2">
+            {{ "readContemplation" | translate}}
+          </span> </a>
+      </div>
+
+      <div class="co-btn">
+        <a class="btn-link flex items-center content-center"
+          [ngClass]="activeNav == 'media' ? 'active' : ''"
+          (click)="navMedia()">
+          <i class="fa fa-play-circle me-2"></i> <span class="text me-2">
+            {{ "watchContemplation" | translate}}
+          </span>
+        </a>
+      </div>
+
+      <div class="co-btn">
+        <div class="p-3 flex items-center content-center"> <span class="text">
+            {{topicName}} </span> </div>
+      </div>
+
     </div>
   </div>
-  
+</div>

@@ -27,13 +27,12 @@ export class TextListComponent {
   coursesId: any;
   topicId: any;
   topicName: any;
-
-
-
+  activetextItem:any;
 
   getTopicName() {
-    this.http.get<any>(
-      `${this.apiUrl}/courses/${this.coursesId}/topics/${this.topicId}`).subscribe(e => { this.topicName = e.name });
+    this.http.get<any>(`${this.apiUrl}/courses/${this.coursesId}/topics/${this.topicId}`).subscribe(e => {
+      this.topicName = e.name
+    });
   }
 
   getTextLessonsList(): Observable<TextLesson[]> {
@@ -47,10 +46,9 @@ export class TextListComponent {
       `${this.apiUrl}/courses/${this.coursesId}/topics/${this.topicId}/lessons/text/${id}`
     ).subscribe((data: any) => {
       this.textDetails = data.descriptionAr;
+      this.activetextItem = data.id
     });
   }
-
-
 
   ngOnInit() {
 
@@ -59,16 +57,12 @@ export class TextListComponent {
     console.log('tid', this.topicId);
 
     this.getTextLessonsList().subscribe((data: any) => {
-
-      this.textList = data.data;
-
-      this.getTextLessonDetails(this.textList[0].id);
-
+        this.textList = data.data;
+        this.getTextLessonDetails(this.textList[0].id);
     });
 
 
 
   }
-  
 
 }

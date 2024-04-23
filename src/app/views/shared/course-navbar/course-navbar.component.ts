@@ -9,25 +9,22 @@ import { SharedService } from 'src/app/core/shared.service';
 })
 export class CourseNavbarComponent {
 
-
   @Input() topicName = '';
   @Input() coursesId = '';
   @Input() topicId = '';
+  @Input() activeNav = '';
 
   constructor(private sharedService:SharedService , private router:Router) {}
 
-
   navText():void {
-    this.router.navigate([`/courses-list/${this.coursesId}/topics-list/${this.topicId}/text-list`]);
+    this.router.navigate([`/courses-list/${this.coursesId}/topics-list/${this.topicId}/text-list`]); 
   }
 
   navMedia():void {
-    this.router.navigate([`/courses-list/${this.coursesId}/topics-list/${this.topicId}/media-list`]);
+    this.router.navigate([`/courses-list/${this.coursesId}/topics-list/${this.topicId}/media-list`]); 
   }
 
   ngOnInit(){
-    // alert(this.coursesId);
-    // alert(this.topicId);
   }
   
 }

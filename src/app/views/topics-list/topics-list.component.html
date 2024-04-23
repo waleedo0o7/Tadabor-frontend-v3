@@ -25,13 +25,13 @@
 
     <div *ngIf="topicsList.length > 0 " class="grid grid-cols-4 gap-4">
       <a *ngFor="let item of topicsList" class="surah-card"
-        (click)="onNavOpenMedia(item.id , item.name)">
+        (click)="onNavOpenMedia(item.id)">
 
         <h4 class="surah-name h4 mb-3"> {{item.name}} </h4>
 
         <div class="mb-3">
 
-          <p class="bold mb-3"> متابعة المشاهدة (50%) </p>
+          <p class="bold mb-3"> {{ "continueWatching" | translate}}  (50%) </p>
 
           <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
             <div class="bg-primary h-2.5 rounded-full" style="width: 50%"></div>

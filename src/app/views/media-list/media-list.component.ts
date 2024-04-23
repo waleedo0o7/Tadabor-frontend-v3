@@ -83,7 +83,6 @@ export class MediaListComponent {
 
   ngOnInit() {
  
-
     this.getTopicName()
 
     this.getVideoLessonsList().subscribe((data: any) => {

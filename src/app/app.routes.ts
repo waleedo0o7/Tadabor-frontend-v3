@@ -8,7 +8,13 @@ import { TextListComponent } from './views/text-list/text-list.component';
  
 export const routes: Routes = [
 
-  { path: 'courses-list/:cid/topics-list', component: TopicsListComponent } ,
+  { 
+    path: '', 
+    redirectTo: 'courses-list/1/topics-list',
+    pathMatch: 'full' 
+  },
+
+  { path: 'courses-list/:cid/topics-list', component: TopicsListComponent} ,
   
   { path: 'courses-list/:cid/topics-list/:tid/media-list', component: MediaListComponent },
 
